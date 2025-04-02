@@ -28,8 +28,8 @@ Proje, modüler ve okunabilir bir şekilde düzenlendi:
 ```bash
 Core.Packages/
 |── src/
-|   |── EventManagement.Application/       
-|   |── EventManagement.Infrastructure/    
+|   |── Core.Application/       
+|   |── Core.Infrastructure/    
 |
 |── Core.Packages.sln                    # Çözüm dosyası
 ```
