@@ -30,6 +30,7 @@ Core.Packages/
 |── src/
 |   |── Core.Application/       
 |   |── Core.Infrastructure/    
+|   |── Core.Shared/
 |
 |── Core.Packages.sln                    # Çözüm dosyası
 ```
@@ -56,10 +57,11 @@ Core.Packages'ı başka bir projede kullanmak için şu adımları izleyebilirsi
    - İlgili namespace'leri projenize dahil edin ve araçları kullanmaya başlayın:
    <br><br>
    ```bash
-   using Core.Packages.Utilities;
-   using Core.Packages.Extensions;
+   using Core.Shared.Extensions;
 
-   var formattedDate = DateTime.Now.ToFriendlyString(); // Örnek extension metod
+   ReportStatus status = ReportStatus.Completed;
+   string displayName = status.GetDisplayName(); 
+   Console.WriteLine(displayName); // Çıktı: "Tamamlandı"
    ```
    
 ## Kurulum
