@@ -74,9 +74,9 @@ public interface IRepository<TEntity,TEntityId> : IQuery<TEntity>
     /// <summary>
     /// Adds a collection of entities to the repository.
     /// </summary>
-    /// <param name="entity">The collection of entities to add.</param>
+    /// <param name="entities">The collection of entities to add.</param>
     /// <returns>The added entities.</returns>
-    ICollection<TEntity> AddRange(ICollection<TEntity> entity);
+    ICollection<TEntity> AddRange(ICollection<TEntity> entities);
 
     /// <summary>
     /// Updates an existing entity in the repository.
@@ -88,9 +88,9 @@ public interface IRepository<TEntity,TEntityId> : IQuery<TEntity>
     /// <summary>
     /// Updates a collection of entities in the repository.
     /// </summary>
-    /// <param name="entity">The collection of entities to update.</param>
+    /// <param name="entities">The collection of entities to update.</param>
     /// <returns>The updated entities.</returns>
-    ICollection<TEntity> UpdateRange(ICollection<TEntity> entity);
+    ICollection<TEntity> UpdateRange(ICollection<TEntity> entities);
 
     /// <summary>
     /// Deletes an entity from the repository.
@@ -103,8 +103,8 @@ public interface IRepository<TEntity,TEntityId> : IQuery<TEntity>
     /// <summary>
     /// Deletes a collection of entities from the repository.
     /// </summary>
-    /// <param name="entity">The collection of entities to delete.</param>
+    /// <param name="entities">The collection of entities to delete.</param>
     /// <param name="permanent">Whether to permanently delete the entities (bypassing soft delete).</param>
     /// <returns>The deleted entities.</returns>
-    ICollection<TEntity> DeleteRange(ICollection<TEntity> entity, bool permanent = false);
+    ICollection<TEntity> DeleteRange(ICollection<TEntity> entities, bool permanent = false);
 }
