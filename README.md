@@ -31,6 +31,7 @@ Core.Packages/
 |   |── Core.Application/       
 |   |── Core.Infrastructure/    
 |   |── Core.Shared/
+|   |── Core.CrossCuttingConcerns/
 |
 |── Core.Packages.sln                    # Çözüm dosyası
 ```
