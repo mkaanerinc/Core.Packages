@@ -28,10 +28,12 @@ The project is organized in a modular and readable manner:
 ```bash
 Core.Packages/
 |── src/
-|   |── EventManagement.Application/       
-|   |── EventManagement.Infrastructure/    
+|   |── Core.Application/       
+|   |── Core.Infrastructure/    
+|   |── Core.Shared/
+|   |── Core.CrossCuttingConcerns/
 |
-|── Core.Packages.sln                    # Solution file
+|── Core.Packages.sln                    # Çözüm dosyası
 ```
 
 ## Usage
@@ -56,10 +58,11 @@ To use Core.Packages in another project, follow these steps:
    - Include the relevant namespaces in your project and start using the tools:
    <br><br>
    ```bash
-   using Core.Packages.Utilities;
-   using Core.Packages.Extensions;
+   using Core.Shared.Extensions;
 
-   var formattedDate = DateTime.Now.ToFriendlyString(); // Örnek extension metod
+   ReportStatus status = ReportStatus.Completed;
+   string displayName = status.GetDisplayName(); 
+   Console.WriteLine(displayName); // Output: "Tamamlandı"
    ```
    
 ## Installation
