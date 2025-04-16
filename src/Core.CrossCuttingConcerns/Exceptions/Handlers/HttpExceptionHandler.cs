@@ -40,6 +40,18 @@ public class HttpExceptionHandler : ExceptionHandler
     }
 
     /// <summary>
+    /// Handles <see cref="NotFoundException"/> instances by writing an HTTP 404 Not Found response.
+    /// </summary>
+    /// <param name="notFoundException">The exception to handle.</param>
+    /// <returns>A task representing the async operation.</returns>
+    protected override Task HandleException(NotFoundException notFoundException)
+    {
+        Response.StatusCode = StatusCodes.Status404NotFound;
+        string details = new NotFoundProblemDetails(notFoundException.Message).AsJson();
+        return Response.WriteAsync(details);
+    }
+
+    /// <summary>
     /// Handles <see cref="ValidationException"/> instances by writing an HTTP 400 Bad Request response.
     /// </summary>
     /// <param name="validationException">The validation exception to handle.</param>
