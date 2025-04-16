@@ -25,6 +25,13 @@ public abstract class ExceptionHandler
         };
 
     /// <summary>
+    /// Handles a <see cref="BusinessException"/> asynchronously.
+    /// </summary>
+    /// <param name="businessException">The validation exception to handle.</param>
+    /// <returns>A task that represents the asynchronous operation.</returns>
+    protected abstract Task HandleException(BusinessException businessException);
+
+    /// <summary>
     /// Handles a <see cref="ValidationException"/> asynchronously.
     /// </summary>
     /// <param name="validationException">The validation exception to handle.</param>

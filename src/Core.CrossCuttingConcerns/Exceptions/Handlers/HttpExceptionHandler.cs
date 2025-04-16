@@ -28,6 +28,18 @@ public class HttpExceptionHandler : ExceptionHandler
     }
 
     /// <summary>
+    /// Handles <see cref="BusinessException"/> instances by writing an HTTP 400 Bad Request response.
+    /// </summary>
+    /// <param name="businessException">The business exception to handle.</param>
+    /// <returns>A task that represents the asynchronous operation of writing the response.</returns>
+    protected override Task HandleException(BusinessException businessException)
+    {
+        Response.StatusCode = StatusCodes.Status400BadRequest;
+        string details = new BusinessProblemDetails(businessException.Message).AsJson();
+        return Response.WriteAsync(details);
+    }
+
+    /// <summary>
     /// Handles general exceptions by writing an HTTP 500 Internal Server Error response.
     /// </summary>
     /// <param name="exception">The exception to handle.</param>
