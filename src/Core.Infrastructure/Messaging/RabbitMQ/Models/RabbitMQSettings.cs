@@ -12,6 +12,12 @@ namespace Core.Infrastructure.Messaging.RabbitMQ.Models;
 public class RabbitMQSettings
 {
     /// <summary>
+    /// Gets or sets the connection string for URI-based RabbitMQ connections (e.g., CloudAMQP).
+    /// </summary>
+    /// <value>The AMQP or AMQPS connection string, defaults to "amqps://myuser:mypass@lemur.cloudamqp.com/myvhost".</value>
+    public string ConnectionString { get; set; } = "amqps://myuser:mypass@lemur.cloudamqp.com/myvhost";
+
+    /// <summary>
     /// Gets or sets the hostname of the RabbitMQ server.
     /// </summary>
     /// <value>
@@ -42,4 +48,10 @@ public class RabbitMQSettings
     /// A string representing the password (default is "guest").
     /// </value>
     public string Password { get; set; } = "guest";
+
+    /// <summary>
+    /// Gets or sets the type of connection to use for RabbitMQ configuration.
+    /// </summary>
+    /// <value>The connection type, either <see cref="ConnectionType.Uri"/> or <see cref="ConnectionType.IndividualSettings"/>.</value>
+    public ConnectionType ConnectionType { get; set; }
 }

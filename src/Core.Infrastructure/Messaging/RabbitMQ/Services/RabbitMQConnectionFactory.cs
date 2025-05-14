@@ -25,12 +25,39 @@ public class RabbitMQConnectionFactory : IRabbitMQConnectionFactory
     {
         _connectionFactory = new ConnectionFactory
         {
-            HostName = settings.HostName,
-            Port = settings.Port,
-            UserName = settings.UserName,
-            Password = settings.Password,
             AutomaticRecoveryEnabled = true
         };
+
+        ConfigureConnectionFactory(settings);
+    }
+
+    /// <summary>
+    /// Configures the RabbitMQ <see cref="ConnectionFactory"/> based on the provided settings.
+    /// </summary>
+    /// <param name="settings">The RabbitMQ settings containing connection configuration.</param>
+    /// <exception cref="ArgumentException">Thrown when the connection type is unsupported or required 
+    /// settings are invalid.</exception>
+    private void ConfigureConnectionFactory(RabbitMQSettings settings)
+    {
+        switch (settings.ConnectionType)
+        {
+            case ConnectionType.Uri:
+
+                _connectionFactory.Uri = new Uri(settings.ConnectionString);
+                _connectionFactory.Ssl.Enabled = true;
+                break;
+
+            case ConnectionType.IndividualSettings:
+
+                _connectionFactory.HostName = settings.HostName;
+                _connectionFactory.Port = settings.Port;
+                _connectionFactory.UserName = settings.UserName;
+                _connectionFactory.Password = settings.Password;
+                break;
+
+            default:
+                throw new ArgumentException($"Unsupported ConnectionType: {settings.ConnectionType}.");
+        }
     }
 
     /// <summary>
