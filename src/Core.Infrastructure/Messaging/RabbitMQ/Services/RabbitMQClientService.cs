@@ -38,13 +38,12 @@ public class RabbitMQClientService : IDisposable, IAsyncDisposable
     /// <param name="configuration">The application's configuration object.</param>
     /// <param name="loggerServiceBase">The logger service for logging RabbitMQ events.</param>
     /// <param name="connectionFactory">The factory used to create RabbitMQ connections.</param>
-    /// <exception cref="InvalidOperationException">Thrown if RabbitMQ configuration is missing.</exception>
     public RabbitMQClientService(IConfiguration configuration, ILoggerService loggerServiceBase, IRabbitMQConnectionFactory connectionFactory)
     {
         _loggerServiceBase = loggerServiceBase;
         _connectionFactory = connectionFactory;
         _brokerOptions = configuration.GetSection("RabbitMQ:MessageBrokerOptions").Get<MessageBrokerOptions>()
-            ?? throw new InvalidOperationException("RabbitMQ configuration is missing.");
+            ?? new MessageBrokerOptions();
     }
 
     /// <summary>
@@ -65,6 +64,11 @@ public class RabbitMQClientService : IDisposable, IAsyncDisposable
             await EnsureConnectionAsync();
 
             _channel = await _connection!.CreateChannelAsync();
+
+            if (!_brokerOptions.Brokers.Any())
+            {
+                _loggerServiceBase.LogWarning("No broker configurations found in MessageBrokerOptions. Skipping exchange and queue declarations.");
+            }
 
             foreach (var broker in _brokerOptions.Brokers)
             {
