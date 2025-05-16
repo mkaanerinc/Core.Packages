@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.Shared", "src\Core.Sha
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.CrossCuttingConcerns", "src\Core.CrossCuttingConcerns\Core.CrossCuttingConcerns.csproj", "{3C88B1AB-86EC-402D-ABD3-244843E9F709}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.Security", "src\Core.Security\Core.Security.csproj", "{57C9243C-D102-4C6E-9D94-078ED44202C4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +37,10 @@ Global
 		{3C88B1AB-86EC-402D-ABD3-244843E9F709}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3C88B1AB-86EC-402D-ABD3-244843E9F709}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3C88B1AB-86EC-402D-ABD3-244843E9F709}.Release|Any CPU.Build.0 = Release|Any CPU
+		{57C9243C-D102-4C6E-9D94-078ED44202C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57C9243C-D102-4C6E-9D94-078ED44202C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57C9243C-D102-4C6E-9D94-078ED44202C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57C9243C-D102-4C6E-9D94-078ED44202C4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -44,5 +50,6 @@ Global
 		{CBB4B3A2-DA44-4B2B-9969-20A00068C4DC} = {CF56FD24-7332-47D2-AA8D-D59A5E6F89B5}
 		{44817021-44BB-4B20-A4B7-00AC70AD9877} = {CF56FD24-7332-47D2-AA8D-D59A5E6F89B5}
 		{3C88B1AB-86EC-402D-ABD3-244843E9F709} = {CF56FD24-7332-47D2-AA8D-D59A5E6F89B5}
+		{57C9243C-D102-4C6E-9D94-078ED44202C4} = {CF56FD24-7332-47D2-AA8D-D59A5E6F89B5}
 	EndGlobalSection
 EndGlobal
