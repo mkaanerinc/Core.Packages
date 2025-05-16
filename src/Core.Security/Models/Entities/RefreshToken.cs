@@ -25,7 +25,7 @@ public class RefreshToken : Entity<int>
     /// <summary>
     /// Gets or sets the expiration date and time of the refresh token.
     /// </summary>
-    public DateTime Expires { get; set; }
+    public DateTimeOffset Expires { get; set; }
 
     /// <summary>
     /// Gets or sets the IP address from which the refresh token was created.
@@ -35,7 +35,7 @@ public class RefreshToken : Entity<int>
     /// <summary>
     /// Gets or sets the date and time when the refresh token was revoked, if applicable.
     /// </summary>
-    public DateTime? Revoked { get; set; }
+    public DateTimeOffset? Revoked { get; set; }
 
     /// <summary>
     /// Gets or sets the IP address from which the refresh token was revoked, if applicable.
@@ -76,7 +76,7 @@ public class RefreshToken : Entity<int>
     /// <param name="token">The refresh token value.</param>
     /// <param name="expires">The expiration date and time of the refresh token.</param>
     /// <param name="createdByIp">The IP address from which the refresh token was created.</param>
-    public RefreshToken(int userId, string token, DateTime expires, string createdByIp)
+    public RefreshToken(int userId, string token, DateTimeOffset expires, string createdByIp)
     {
         UserId = userId;
         Token = token;
@@ -92,7 +92,7 @@ public class RefreshToken : Entity<int>
     /// <param name="token">The refresh token value.</param>
     /// <param name="expires">The expiration date and time of the refresh token.</param>
     /// <param name="createdByIp">The IP address from which the refresh token was created.</param>
-    public RefreshToken(int id, int userId, string token, DateTime expires, string createdByIp)
+    public RefreshToken(int id, int userId, string token, DateTimeOffset expires, string createdByIp)
         : base(id)
     {
         UserId = userId;
