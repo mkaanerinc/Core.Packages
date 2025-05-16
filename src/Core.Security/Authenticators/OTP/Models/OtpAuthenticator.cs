@@ -1,11 +1,12 @@
 ﻿using Core.Infrastructure.Persistence.Repositories;
+using Core.Security.Models.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Core.Security.Models.Entities;
+namespace Core.Security.Authenticators.OTP.Models;
 
 /// <summary>
 /// Represents an OTP (One-Time Password) authenticator used to manage two-factor authentication for a user.
