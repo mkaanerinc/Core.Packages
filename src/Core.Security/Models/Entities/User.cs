@@ -1,4 +1,5 @@
 ﻿using Core.Infrastructure.Persistence.Repositories;
+using Core.Security.Authenticators.Email.Models;
 using Core.Security.Authenticators.OTP.Models;
 using Core.Security.Models.Enums;
 using System;

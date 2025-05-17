@@ -6,6 +6,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Core.Security.Authenticators.Email.Interfaces;
+using Core.Security.Authenticators.Email;
+using Core.Security.Authenticators.OTP.Interfaces;
+using Core.Security.Authenticators.OTP.OtpNet;
+using Core.Security.JWT;
 
 namespace Core.Security;
 
@@ -24,6 +29,10 @@ public static class SecurityServiceRegistration
     {
         services.AddScoped<ISecurityKeyHelper, SecurityKeyHelper>();
         services.AddScoped<ISigningCredentialsHelper, SigningCredentialsHelper>();
+        services.AddScoped<ITokenHelper, JwtHelper>();
+
+        services.AddScoped<IEmailAuthenticatorHelper, EmailAuthenticatorHelper>();
+        services.AddScoped<IOtpAuthenticatorHelper, OtpNetOtpAuthenticatorHelper>();
 
         return services;
     }

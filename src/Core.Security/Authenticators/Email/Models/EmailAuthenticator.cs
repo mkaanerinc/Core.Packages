@@ -1,11 +1,12 @@
 ﻿using Core.Infrastructure.Persistence.Repositories;
+using Core.Security.Models.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Core.Security.Models.Entities;
+namespace Core.Security.Authenticators.Email.Models;
 
 /// <summary>
 /// Represents an email-based authenticator used to manage email verification for a user.
