@@ -46,6 +46,11 @@ public class User : Entity<int>
     public UserStatus Status { get; set; }
 
     /// <summary>
+    /// Gets or sets the type of authenticator associated with the user.
+    /// </summary>
+    public AuthenticatorType AuthenticatorType { get; set; }
+
+    /// <summary>
     /// The collection of operation claims associated with this user.
     /// </summary>
     /// <remarks>
@@ -99,7 +104,7 @@ public class User : Entity<int>
     /// <param name="passwordHash">The hashed password of the user.</param>
     /// <param name="status">The status of the user (e.g., Passive, Active, Suspended).</param>
     public User(string firstName, string lastName, string email, byte[] passwordSalt,
-        byte[] passwordHash, UserStatus status)
+        byte[] passwordHash, UserStatus status, AuthenticatorType authenticator)
     {
         FirstName = firstName;
         LastName = lastName;
@@ -107,6 +112,7 @@ public class User : Entity<int>
         PasswordSalt = passwordSalt;
         PasswordHash = passwordHash;
         Status = status;
+        AuthenticatorType = authenticator;
     }
 
     /// <summary>
@@ -120,7 +126,7 @@ public class User : Entity<int>
     /// <param name="passwordHash">The hashed password of the user.</param>
     /// <param name="status">The status of the user (e.g., Passive, Active, Suspended).</param>
     public User(int id, string firstName, string lastName, string email, byte[] passwordSalt, 
-        byte[] passwordHash, UserStatus status) : base(id)
+        byte[] passwordHash, UserStatus status, AuthenticatorType authenticator) : base(id)
     {
         FirstName = firstName;
         LastName = lastName;
@@ -128,5 +134,6 @@ public class User : Entity<int>
         PasswordSalt = passwordSalt;
         PasswordHash = passwordHash;
         Status = status;
+        AuthenticatorType = authenticator;
     }
 }
