@@ -74,4 +74,16 @@ public class HttpExceptionHandler : ExceptionHandler
         string details = new ValidationProblemDetails(validationException.Errors).AsJson();
         return Response.WriteAsync(details);
     }
+
+    /// <summary>
+    /// Handles <see cref="AuthorizationException"/> instances by writing an HTTP 403 Forbidden response.
+    /// </summary>
+    /// <param name="authorizationException">The authorization exception to handle.</param>
+    /// <returns>A task that represents the asynchronous operation of writing the response.</returns>
+    protected override Task HandleException(AuthorizationException authorizationException)
+    {
+        Response.StatusCode = StatusCodes.Status403Forbidden;
+        string details = new AuthorizationProblemDetails(authorizationException.Message).AsJson();
+        return Response.WriteAsync(details);
+    }
 }

@@ -46,6 +46,13 @@ public abstract class ExceptionHandler
     protected abstract Task HandleException(NotFoundException notFoundException);
 
     /// <summary>
+    /// Handles a <see cref="AuthorizationException"/> asynchronously.
+    /// </summary>
+    /// <param name="authorizationException">The authorization exception to handle.</param>
+    /// <returns>A task that represents the asynchronous operation.</returns>
+    protected abstract Task HandleException(AuthorizationException authorizationException);
+
+    /// <summary>
     /// Handles a general <see cref="Exception"/> asynchronously.
     /// </summary>
     /// <param name="exception">The exception to handle.</param>
